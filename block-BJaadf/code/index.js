@@ -10,12 +10,11 @@ fruits.pop();
 
 // Log the current length of fruits array
 
-console.log(fruits);
+console.log(fruits.length);
 
 // Remove the first element from fruits and log the value of fruits (use delete arr[0])
 
-fruits.shift();
-console.log(fruits);
+delete fruits [0];
 
 // Log the element on index 0 and 1
 
@@ -24,19 +23,18 @@ console.log(fruits[1]);
 
 // If the element at 0 index is undefined and index 1 is 'Banana' shift all the values to one lower index (use shift method)
 
-if(fruits[0] === 'undefined' && fruits[1] === 'Banana') {
-    fruits.shift();
-}
+fruits.shift();
+console.log(fruits);
 
 // Add a new element to the start ('Guava') and shift the index of all other to one higher value
 
-fruits.unshift('Guava');
-fruits.shift();
+fruits.splice(0,0,'Guava');
+console.log(fruits);
 
 // Add a new element to the start ('Dragon Fruit') and shift the index of all other to one higher value
 
-fruits.unshift('Dragon Fruit');
-fruits.shift();
+fruits.splice(0,0,'Dragon Fruit');
+console.log(fruits);
 
 // Log true or false based on the value at index 0 and 1 is 'Dragon Fruit' and 'Guava' or not
 
@@ -49,11 +47,11 @@ else {
 
 // Update the value of index 1 to `Pears`
 
-fruits.splice(1,0,'pears');
+fruits[1] = 'Pears';
 
 // Add the 'Kiwi' and 'Lemon' to the index 1 and 2 and shift the other element to next index (use splice to add element)
 
-
+fruits.splice(1,0,'Kiwi', 'Lemon');
 
 // Remove (slice) all the element from index 5
 
@@ -65,34 +63,28 @@ let moreFruits = ['Berries', 'Melons'];
 
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
 
-fruits.concat(moreFruits);
-console.log(fruits);
+fruits = fruits.concat(moreFruits);
 
 // Log the name of all fruit in console
 
-fruits.forEach(function(fruits){
-    console.log(fruits);
-})
+fruits.forEach((fruits) => console.log(fruits));
 
 // Convert each fruit name to lowercase and log it
 
-fruits.toLowerCase();
-console.log(fruits)
+fruits.forEach((fruits) => console.log(fruits.toLowerCase()));
+
 
 // Convert all fruits name into lowercase and store in new array named lowercaseFruits
 
-fruits.toLowerCase();
-let lowercaseFruits = []
-const value = console.log(fruits);
-value.push(lowercaseFruits);
+let lowercaseFruits = fruits.map((fruits) =>
+fruits.toLowerCase()
+)
 
 // Convert all fruits name into uppercase and store in new array named uppercaseFruits
 
-fruits.toLowerCase();
-let uppercaseFruits = []
-const value2 = console.log(fruits);
-value.push(uppercasecaseFruits);
-
+let uppercaseFruits = fruits.map((fruits) =>
+fruits.toUpperCase()
+)
 
 
 let numbers = [1, 2, [3, 4]];
@@ -101,7 +93,7 @@ let numbersThree = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 
 // Convert the numbers array to one level element. Remove sub-arrays to individual elements and log them
 
-numbers.flat();
+numbers.flat(2);
 
 // Convert the numbersTwo array to one level element. Remove all sub-arrays to individual elements and log them.
 // (for multiple level flat accepts argument by default it's 1 `array.flat(2)`)
@@ -111,13 +103,13 @@ numbersTwo.flat(2);
 // Convert the numbersThree array to one level element.
 // Remove all sub-arrays to individual elements, log them and update the value of numbersThree to the new flat array.
 
-numbersThree.flat(4);
+numbersThree.flat(Infinity);
 
 // Use forEach to log all the elements of numberThree array
 
-numbersThree.forEach(function(numbersThree){
-    console.log(numbersThree);
-})
+numbersThree.forEach((num) => 
+    console.log(num));
+
 
 // Create a new variable named doubleNumbers that store the numberThree array (each element should be multiplied by 2). Use map
 
@@ -137,7 +129,7 @@ console.log(tripleNumbers);
 // Create a new variable named halfNumbers that store the numberThree array (each element should be divided by 2). Use map
 
 let halfNumbers = numbersThree.map(numbers => {
-    return numbers % 2;
+    return numbers / 2;
 })
 console.log(halfNumbers);
 
@@ -158,7 +150,7 @@ console.log(evenNumbers);
 
 // Find the index of 10 in numbersThree array
 
-numbersThree.indexOf(10);
+numbersThree.find((num) => num === 10);
 
 // Reverse the values of numbersThree array
 
