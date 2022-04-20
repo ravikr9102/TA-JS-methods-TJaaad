@@ -20,7 +20,7 @@ console.log(quote.charAt(indexOfIs));
 3. Log the message saying `The index of first is in quote is 7`
 */
 
-console.log(`The index of first is in quote is ${indexOfIs}`);
+console.log(`The index of first is in quote is ${quote.charAt(indexOfIs)}`);
 
 /*
 4. Log the message for first 6 characters of quote like this.
@@ -32,12 +32,9 @@ console.log(`The index of first is in quote is ${indexOfIs}`);
   The character at index 5 is ' '
 */
 
-console.log(`The character at index is ${quote[0]} `)
-console.log(`The character at index is ${quote[1]} `)
-console.log(`The character at index is ${quote[2]} `)
-console.log(`The character at index is ${quote[3]} `)
-console.log(`The character at index is ${quote[4]} `)
-console.log(`The character at index is ${quote[5]} `)
+for(let i = 0; i < 6; i++) {
+  console.log(`The character at index ${i} is ${quote[i]} `)
+}
 
 
 /*
@@ -84,25 +81,32 @@ console.log(quote.indexOf("we"));
 11. Change the word "today" in quoteSplitted to "tomorrow" and join all the words to form a sentance.
 */
 
-quoteSplitted.join(" ").replace("today", "tomorrow");
+// quoteSplitted.join(" ").replace("today", "tomorrow");
+
+let index = quoteSplitted.indexOf("today");
+
+quoteSplitted[index] = "tomorrow";
+
+quoteSplitted.join (" ");
 
 /*
 12. Find the index of second "o" in quote. Use indexOf
 */
 
-console.log(quote.indexOf("o"));
+console.log(quote.indexOf("o",8));
 
 /*
 13. Find the last index of letter "a" in quote.
 */
 
-console.log(quote.lastIndexOf("a"));
+let lastIndexOfA = quote.lastIndexOf("a");
+
 
 /*
 14. Find the second last index of letter "a" in quote.
 */
 
-
+quote.lastIndexOf("a", lastIndexOfA - 1 );
 
 /*
 15. Make the quote 70 character long. If it has less characters add rest as .......
@@ -110,23 +114,33 @@ Example: "Hello" (convert to 10 characters) => "Hello....."
 Store the output in a new variable
 */
 
-let value = quote.padEnd('70','.');
+// let value = quote.padEnd('70','.');
+// console.log(value);
+
+let max = 70;
+let length = quote.length;
+
+let newQuote = quote + ".".repeat(max-length);
 
 
 /*
 16. Do same as (15) but the ... should come in start. Store the output in a new variable
 */
 
-let value2 = quote.padStart('15','.')
+// let value2 = quote.padStart('15','.')
+
+let newStartQuote = ".".repeat(max-length) + quote;
 
 
 /*
 17. Log the repeat of "Hello World!" 10 times.
 */
 
-for(let i = 0; i < 10; i++){
-  console.log("Hello World!")
-}
+// for(let i = 0; i < 10; i++){
+//   console.log("Hello World!")
+// }
+
+console.log("Hello World".repeat(10));
 
 /*
 18. Replace today to tomorrow in quote.
@@ -144,14 +158,12 @@ console.log(to.replace("Stark", "Lannister"));
 20. Make the quote of length 30 and put ... at the end. (use slice)
 */
 
-quote.slice(0,30);
+let limit = quote.slice(0,30) + "...";
 
 /*
 21. Find out does quote, from, to starts with "A"
 */
 
-function isStartsA(val){
-  return val === "A";
-}
-
-let findReturn = to.find(isStartsA);
+quote.startsWith("A");
+from.startsWith("A");
+to.startsWith("A");
