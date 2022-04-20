@@ -166,9 +166,26 @@ customer.firstname
 // - Create new array with all the full names (ex: "Joe Blogs")
 
 let fullnameCustomer = customers.map((customer) =>
-customer.firstname.lastname.fullnameCustomer
+`${customer.firstname} ${customer.lastname}`
 );
 
 // - Sort the array created above alphabetically
 
+[...fullnameCustomer].sort();
+
 // - Create a new array that contains only user who has at least one vowel in the firstname.
+
+let vowelCustomer = customers.filter((customers) => {
+  if(
+    customers.firstname.toLowerCase().includes("a") || 
+    customers.firstname.toLowerCase().includes("e") || 
+    customers.firstname.toLowerCase().includes("i") || 
+    customers.firstname.toLowerCase().includes("o") || 
+    customers.firstname.toLowerCase().includes("u") 
+  ) {
+    return true;
+  } else {
+    false;
+  }
+});
+
