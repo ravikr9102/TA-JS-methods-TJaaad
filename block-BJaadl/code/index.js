@@ -15,33 +15,46 @@ let findLongestWord = words.sort((a,b) => a.length - b.length).pop();
 
 // - Convert the above array "words" into an array of length of word instead of word.
 
-
+let wordsLength = words.map((w) => w.length);
 
 // - Create a new array that only contains word with atleast one vowel.
 
-let vowelWord = words.filter((word) => {
-  if(
-    word.toLowerCase().includes("a") ||
-    word.toLowerCase().includes("e") ||
-    word.toLowerCase().includes("i") ||
-    word.toLowerCase().includes("o") ||
-    word.toLowerCase().includes("u") 
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-});
+// let vowelWord = words.filter((word) => {
+//   if(
+//     word.toLowerCase().includes("a") ||
+//     word.toLowerCase().includes("e") ||
+//     word.toLowerCase().includes("i") ||
+//     word.toLowerCase().includes("o") ||
+//     word.toLowerCase().includes("u") 
+//   ) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// });
+
+function checkVowel(words){
+  return (
+    words.toLowerCase().includes("a") ||
+    words.toLowerCase().includes("e") ||
+    words.toLowerCase().includes("i") ||
+    words.toLowerCase().includes("o") ||
+    words.toLowerCase().includes("u") 
+  );
+}
+let vowelFilter = words.filter((w) => checkVowel(w));
 
 // - Find the index of the word "rhythm"
 
-console.log(words.indexOf("rhythm"));
+words.findIndex((w) => w == "rhythm");
 
 // - Create a new array that contians words not starting with vowel.
 
-
+let notWithVowel = words.filter((w) => !checkVowel(w[0]));
 
 // - Create a new array that contianse words not ending with vowel
+
+let notEndingWithVowel = words.filter((w) => !checkVowel(w[w.length-1]));
 
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -76,7 +89,7 @@ let evenNumbers = numbers.filter(isEven);
 
 // - Create a new array that should have true for even number and false for odd numbers.
 
-
+let oddOrEven = numbers.map((num) => num % 2 === 0);
 
 // - Sort the above number in assending order.
 
@@ -95,6 +108,14 @@ let sum2 = numbers.reduce((acc,num) => {
 
 //- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
 
+function averageNumbers(array){
+  return array.reduce((acc,cv) => {
+    acc = acc + cv;
+    return acc;
+  },0) / array.length
+}
+
+
 let strings = [
   'seat',
   'correspond',
@@ -109,3 +130,14 @@ let strings = [
 ];
 
 // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
+
+
+function averageWordLength(words){
+  return (
+    words
+    .map((w) => w.length) 
+    .reduce((acc,cv) => {
+      return acc + cv;
+    },0) / words.length
+  );
+}
