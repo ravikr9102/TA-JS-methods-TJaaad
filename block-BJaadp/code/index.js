@@ -22,12 +22,25 @@ let peopleGrade = persons.map((person) => person.grade);
 let gradeTotal = peopleGrade.reduce((acc,cv) => acc + cv,0);
  let averageGrade = gradeTotal /peopleGrade.length;
 
+
+// let personsLength = persons.length
+// let totalGrade = persons.reduce((acc,cv) => {
+//   return acc + cv.grade;
+// },0);
+// console.log(totalGrade / personsLength);
+
+
 // Find the average grade of male
 
 let maleGrade = persons.filter((p) => p.sex === 'M');
  let value = maleGrade.reduce((acc,cv) => {
   return acc + cv.grade;
 },0) / maleGrade.length;
+
+//  let maleGradeAvg = persons.filter((person) => person.sex === 'M')
+// .reduce((acc,cv) => {
+//   return acc + cv.grade;
+// },0) / personsLength;
 
 // Find the average grade of female
 
@@ -36,17 +49,36 @@ let FemaleGrade = persons.filter((p) => p.sex === 'F');
   return acc + cv.grade;
 },0) / FemaleGrade.length;
 
+// let femaleGradeAvg = persons.filter((person) => person.sex === 'F')
+// .reduce((acc,cv) => {
+//   return acc + cv.grade;
+// },0) / personsLength;
+
+
 // Find the highest grade
 
 let result = [...peopleGrade].sort((a,b) => a -b).pop();
+
+// let highest = persons.map((person) => person.grade)
+// .sort((a,b) => a - b).pop();
 
 // Find the highest grade in male
 
 let value1 = [...FemaleGrade].sort((a,b) => a - b).pop();
 
+// let highestMale = persons
+// .filter((p) => p.sex === 'M')
+// .map((person) => person.grade)
+// .sort((a,b) => a - b).pop();
+
 // Find the highest grade in female
 
 let value3 = [...maleGrade].sort((a,b) => a - b).pop();
+
+// let highestFemale = persons
+// .filter((p) => p.sex === 'F')
+// .map((person) => person.grade)
+// .sort((a,b) => a - b).pop();
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
 
@@ -54,6 +86,10 @@ let nameWithJOrP = persons.filter((person) => person.name.startsWith('J') || per
 let gradeNameWithJOrP = nameWithJOrP.map((person) => person.grade);
  [...gradeNameWithJOrP].sort((a,b) => a - b).pop();
 
+// let highestNameWithJ = persons
+// .filter((p) => p.name.startsWith('F') || p.name.startsWith('P'))
+// .map((person) => person.grade)
+// .sort((a,b) => a - b).pop();
 
 const fruitBasket = [
   'banana',
@@ -83,6 +119,15 @@ let fruitsObj = fruitBasket.reduce( (tally, fruit) => {
   return tally;
 } , {});
 
+// let fruitsObject = fruitBasket.reduce((acc,cv) => {
+//   if(acc[cv]) {
+//     acc [cv] = acc[cv] + 1;
+//   } else {
+//     acc [cv] = 1;
+//   }
+//   return acc;
+// }, {});
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -93,11 +138,17 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
-let fruitsObj1 = fruitBasket.reduce( (tally, fruit) => {
-  tally[fruit] = (tally[fruit] || 0) + 1 ;
-  return tally;
-} , []);
-  
+// let fruitsObj1 = fruitBasket.reduce( (tally, fruit) => {
+//   tally[fruit] = (tally[fruit] || 0) + 1 ;
+//   return tally;
+// } , []);
+
+let fruitsArray = Object.keys(fruitsObj).reduce((acc,cv) => {
+  acc = acc.concat([[cv, fruitsObj[cv]]]);
+  return acc;
+},[]
+);
+
 
 
 const data = [
@@ -111,6 +162,11 @@ const flat = data.reduce((total, amount) => {
   return total.concat(amount);
 }, []);
 
+// data.reduce((acc,cv) => {
+//   acc = acc.concat(cv);
+//   return acc;
+// },[] )
+
 const dataTwo = [
   [1, 2, 3],
   [4, 5, 6],
@@ -118,9 +174,14 @@ const dataTwo = [
   [[10, 11], 12],
 ];
 
-const flat2 = dataTwo.reduce((total, amount) => {
-  return total.concat(amount,);
-}, []);
+// const flat2 = dataTwo.reduce((total, amount) => {
+//   return total.concat(amount,);
+// }, []);
+
+dataTwo.reduce((acc,cv) => {
+  acc = acc.concat(cv.flat(Infinity));
+  return acc;
+},[] )
 
 /*
 
@@ -138,14 +199,14 @@ function increment(num){
 function double (num){
   return num * 2;
 }
-function double (num){
+function decrement (num){
   return num - 1;
 }
-function double (num){
+function triple (num){
   return num * 3;
 }
-function double (num){
-  return num * 2;
+function half (num){
+  return Math.round(num / 2);
 }
 
 let pipeline = [
@@ -173,6 +234,10 @@ EXAMPLE:
   ...
 */
 
+pipeline.reduce((acc,cv) => {
+  acc = cv(acc);
+  return acc;
+},3)
 
 
 let pipeline2 = [
@@ -190,3 +255,9 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+
+
+pipeline2.reduce((acc,cv) => {
+  acc = cv(acc);
+  return acc;
+},8);
