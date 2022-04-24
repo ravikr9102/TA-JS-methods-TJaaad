@@ -17,17 +17,43 @@ let persons = [
 
 // Find the average grade
 
+let peopleGrade = persons.map((person) => person.grade);
+
+let gradeTotal = peopleGrade.reduce((acc,cv) => acc + cv,0);
+ let averageGrade = gradeTotal /peopleGrade.length;
+
 // Find the average grade of male
+
+let maleGrade = persons.filter((p) => p.sex === 'M');
+ let value = maleGrade.reduce((acc,cv) => {
+  return acc + cv.grade;
+},0) / maleGrade.length;
 
 // Find the average grade of female
 
+let FemaleGrade = persons.filter((p) => p.sex === 'F');
+ let value2 = FemaleGrade.reduce((acc,cv) => {
+  return acc + cv.grade;
+},0) / FemaleGrade.length;
+
 // Find the highest grade
+
+let result = [...peopleGrade].sort((a,b) => a -b).pop();
 
 // Find the highest grade in male
 
+let value1 = [...FemaleGrade].sort((a,b) => a - b).pop();
+
 // Find the highest grade in female
 
+let value3 = [...maleGrade].sort((a,b) => a - b).pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+let nameWithJOrP = persons.filter((person) => person.name.startsWith('J') || person.name.startsWith('P'));
+let gradeNameWithJOrP = nameWithJOrP.map((person) => person.grade);
+ [...gradeNameWithJOrP].sort((a,b) => a - b).pop();
+
 
 const fruitBasket = [
   'banana',
@@ -52,6 +78,11 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+let fruitsObj = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , {});
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -62,6 +93,13 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
+let fruitsObj1 = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , []);
+  
+
+
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -69,7 +107,9 @@ const data = [
   [10, 11, 12],
 ];
 
-// Using reduce flat data array
+const flat = data.reduce((total, amount) => {
+  return total.concat(amount);
+}, []);
 
 const dataTwo = [
   [1, 2, 3],
@@ -78,7 +118,9 @@ const dataTwo = [
   [[10, 11], 12],
 ];
 
-// Using reduce flat dataTwo array
+const flat2 = dataTwo.reduce((total, amount) => {
+  return total.concat(amount,);
+}, []);
 
 /*
 
@@ -89,6 +131,22 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+
+function increment(num){
+  return num + 1;
+}
+function double (num){
+  return num * 2;
+}
+function double (num){
+  return num - 1;
+}
+function double (num){
+  return num * 3;
+}
+function double (num){
+  return num * 2;
+}
 
 let pipeline = [
   increment,
@@ -114,6 +172,8 @@ EXAMPLE:
 
   ...
 */
+
+
 
 let pipeline2 = [
   increment,
