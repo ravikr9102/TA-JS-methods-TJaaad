@@ -3,6 +3,8 @@ const got = {
     {
       name: "Starks",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Stark",
+
+
       people: [
         {
           name: "Eddard Stark",
@@ -66,6 +68,10 @@ const got = {
         }
       ]
     },
+
+
+
+
     {
       name: "Lannisters",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Lannister",
@@ -102,6 +108,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Baratheons",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Baratheon",
@@ -153,6 +162,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Targaryens",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Targaryen",
@@ -175,6 +187,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Greyjoys",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Greyjoy",
@@ -203,6 +218,10 @@ const got = {
         }
       ]
     },
+
+
+
+
     {
       name: "Tyrells",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Tyrell",
@@ -225,6 +244,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Tullys",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Tully",
@@ -260,6 +282,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Redwyne",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Redwyne",
@@ -273,6 +298,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Freys",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Freys",
@@ -286,6 +314,9 @@ const got = {
         }
       ]
     },
+
+
+
     {
       name: "Arryns",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Arryns",
@@ -300,6 +331,8 @@ const got = {
         }
       ]
     },
+
+    
     {
       name: "Dothrakis",
       wikiLink: "http://gameofthrones.wikia.com/wiki/House_Dothrakis",
