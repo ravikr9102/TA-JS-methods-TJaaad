@@ -57,7 +57,7 @@ function peopleNameOfAllHouses() {
 }
 
 // Testing your result after writing your function
-// console.log(countAllPeople());
+console.log(countAllPeople());
 // Output should be 33
 
 // console.log(peopleByHouses());
